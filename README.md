@@ -1,48 +1,54 @@
-# NYC-Taxi-Trip-Time-Prediction
-Predicting NYC Taxi Trip Duration 
+# NYC Taxi Trip Prediction
+# Problem Description
+Task is to build a model that predicts the total ride duration of taxi trips in New York City. Primary dataset is one released by the NYC Taxi and Limousine Commission, which includes pickup time, geo-coordinates, number of passengers, and several other variables.
 
-The competition dataset is based on the 2016 NYC Yellow Cab trip record data made available in Big Query on Google Cloud Platform. The data was originally published by the NYC Taxi and Limousine Commission (TLC). The data was sampled and cleaned for the purposes of this playground competition. Based on individual trip attributes, participants should predict the duration of each trip in the test set.
+<h2> :floppy_disk: Project Files Description</h2>
 
-Data fields
+<p>This repository includes 1 colab notebook (.ipynb) file and 1 pdf file of project presentation. </p>
+<h4>About Files:</h4>
+<ul>
+<li><b>NYC Taxi Trip Time Prediction Capstone Project.ipynb</b> - This file includes Features description, exploratory data Analysis, feature engineering, feature scaling and implemented algorithms for eg. <b>Linear Regression, Decision Tree, XGBoost.</b></li> 
+ <li><b>NYC_PPT</b> -  This is a power point presentation file of a project. It includes various visualaized plots of EDA using <b>Seaborn and Matplotlib</b>. The result chart of various implemented algorithms.</li>
+  
 
-id - a unique identifier for each trip
+![---------------------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-**vendor_id **- a code indicating the provider associated with the trip record
+<h2> :clipboard: Summary</h2>
+<p align="justify">The given dataset conatins more than 14 lac records and 11 columns. The main goal of this project to predict the trip duration. To get more insights about the dataset, performed Exploratory data analysis to understand the main characteristics of various features. Using existing features, created new features for model building and to interpret data more easily. After analyzing the dataset, it’s found that there is a some inconsistency in some recorded data. The passenger count was high like 7 to 9 passengers in taxi. The travelled distance is very less but trip duration is quite high. There were many outliers in many columns and after analyzing the data, those outliers removed and dataset prepared for model building. Various algorithms apllied on prepared dataset afetr train and test split of dataset. <b>Linear Regression algorithm performed very poorly on given dataset. It predicted 0.60 R2 score on train and test dataset. Decision Tree predicted 0.99 for Train dataset and 0.49 for test. It’s observed that its a overfitting model. XG Boost predicted good accuracy on train and test dataset. It predicted 0.77 and 0.76 R2 score.<b/></p>
 
-pickup_datetime - date and time when the meter was engaged
+![---------------------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-dropoff_datetime - date and time when the meter was disengaged
+<!-- CREDITS -->
+<h2 id="credits"> :scroll: Credits</h2>
 
-passenger_count - the number of passengers in the vehicle (driver entered value)
+<b>Yaman Saini</b> | Avid Reader | Data Science enthusiast |
 
-pickup_longitude - the longitude where the meter was engaged
+[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yamansaini14/)
+[![Medium Badge](https://img.shields.io/badge/Medium-1DA1F2?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/@ys726507)
 
-pickup_latitude - the latitude where the meter was engaged
 
-dropoff_longitude - the longitude where the meter was disengaged
+![---------------------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+<h2>Algorithm References:</h2>
+<ul>
+  <li><p>Linear Regression</p>
+      <p>Link: https://towardsdatascience.com/linear-regression-using-python-b136c91bf0a2</p>
+  </li>
+  <li><p>Decision Tree</p>
+      <p>Link: https://towardsdatascience.com/the-complete-guide-to-decision-trees-28a4e3c7be14</p>
+  </li>
+  <li><p>XG Boost</p>
+      <p>Link: https://towardsdatascience.com/a-journey-through-xgboost-milestone-3-a5569c72d72b</p>
+  </li>
+  <li><p>Random Forest</p>
+      <p>Link: https://www.analyticsvidhya.com/blog/2021/10/an-introduction-to-random-forest-algorithm-for-beginners/</p>
+  </li>
+ <li><p>Hyperparameter Tuning</p>
+      <p>Link: https://towardsdatascience.com/how-to-tune-a-decision-tree-f03721801680</p>
+  </li>
+</ul>
+ 
+ <h2>Data Source</h2>
+  <li><p>Kaggle</p>
+      <p>Link: https://www.kaggle.com/c/nyc-taxi-trip-duration</p>
 
-dropoff_latitude - the latitude where the meter was disengaged
-
-store_and_fwd_flag - This flag indicates whether the trip record was held in vehicle memory before sending to the vendor because the vehicle did not have a connection to the
-
-server - Y=store and forward; N=not a store and forward trip
-
-trip_duration - duration of the trip in seconds
-
-FAQ
-
-Q: Why remove the outliers in the train data? Trips that are outside of the 99th quantile for trip length will unduly skew all of our numbers and results. Let's remove them. This will remove only 14593 out of the nearly 1.5 million trips from the train dataset.
-
-Some of the trips might have a high extremely trip duration. When we check those points, some of the passengers are traveling into the Atlantic ocean. Not only are these points outliers, they also probably don’t correspond to real travel information. By cutting out extremal values, we can train a regressor that is a better fit for most values.
-
-Q: Why is dropoff_datetime present in the train data but not in the test data? According to the Kaggle website:
-
-The decision was made to not remove dropoff coordinates from the dataset order to provide an expanded set of variables to use in Kernels.
-
-Since the dropoff_datetime was not present in the test dataset, we removed it. It also doesn’t make sense to use it since a taxi driver wouldn’t necessarily know how long a trip when picking someone up.
-
-Q: What is drop_contains? It is a list of strings which will tell DFS to drop any features which match the strings.
-
-Q: Why is trips.test_data in drop_contains? We don't want any features to be generated on the test_data column. The column is simply there to differentiate between train and test data. By putting the entity, followed by a dot, and the column name, it tell DFS to drop any aggregation features of test_data. If we had put just test_data in drop_contains, then it would have dropped the test_data column and the aggregation features of test_data.
-
-Q: What is the model being used? XGBoost, which stands for eXtreme Gradient Boosting, is the model used. It is a very popular machine learning algorithm in Kaggle competitions for structured or tabular data. More infromation can be found here.
+![---------------------------------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
